@@ -15,5 +15,14 @@ Vagrant.configure('2') do |config|
     forwarded_ports.each do |port|
       config.vm.network 'forwarded_port', guest: port, host: port, id: "port_#{port}"
     end
-    config.vm.synced_folder "#{ENV['HOME']}/workspace", "#{ENV['HOME']}/workspace"
+    home = ENV['HOME']
+    synced_folders = [
+      "#{home}/workspace",
+      # uncomment to mount aws credentials
+      # "#{home}/.aws"
+    ]
+    synced_folders.each do |folder|
+      config.vm.synced_folder folder, folder
+    end
+
 end
