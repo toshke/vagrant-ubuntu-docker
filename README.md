@@ -9,7 +9,20 @@
 
 ### Run
 
+- Clone the repo 
+
+```
+git clone https://github.com/toshke/vagrant-ubuntu-docker.git && cd vagrant-ubuntu-docker
+```
+
+- To create and run the VM
+
 `make provision` 
+
+- TO connect to Docker from the host
+
+`eval $(make env)`
+
 
 ## Why?
 
@@ -29,6 +42,11 @@ While aforemntioned post suggests against 3 layer drive mapping,
 this works just fine for myself, and in competition of 
 3 (Docker 4 desktop, Minikube, Vagrant provisioned VM) works the best. 
 
+## Potential issues
+
+VBox may complain if `192.168.56.2` ip is already reserved
+by another network iface on your computer. Just edit [Vagrantfile#4](https://github.com/toshke/vagrant-ubuntu-docker/blob/main/Vagrantfile#L4) to apply available IP
+
 ## Folder share
 
 By default, docker mounts will work within `$HOME/workspace` folder,
@@ -40,7 +58,7 @@ reboot your VM with all the containers running on it
 ## Port forwaring
 
 If you mount any ports on docker host to container, you can reach them
-from actual VM host by editiling line `#14` ports array. 
+from actual VM host by editiling [Vagrant file line#14] (https://github.com/toshke/vagrant-ubuntu-docker/blob/main/Vagrantfile#L14) ports array. 
 
 Use `vagrant reload` to apply new configuration - beware this will
 reboot your VM with all the containers running on it
