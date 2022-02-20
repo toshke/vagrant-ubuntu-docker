@@ -7,6 +7,12 @@ provision:
 	vagrant up
 .PHONY: provision
 
+stop:
+	vagrant suspend
+
+resume:
+	vagrant resume
+
 env:
 	@echo 'export DOCKER_HOST=$(PRIVATE_IP):2375'
 .PHONY: env
