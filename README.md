@@ -17,11 +17,15 @@ git clone https://github.com/toshke/vagrant-ubuntu-docker.git && cd vagrant-ubun
 
 - To create and run the VM
 
-`make provision` 
+```
+make provision
+```
 
-- TO connect to Docker from the host
+- To connect to Docker from the host
 
-`eval $(make env)`
+```
+eval $(make env) && docker info
+```
 
 
 ## Why?
