@@ -7,6 +7,25 @@
 - `vagrant` 
 - `vagrant-vbguest` 
 
+### Features
+
+
+#### Folder share
+
+By default, docker mounts will work within `$HOME/workspace` folder,
+but feel free to adjust this to your needs. 
+
+Use `vagrant reload` to apply new configuration - beware this will
+reboot your VM with all the containers running on it
+
+#### Port forwaring
+
+If you mount any ports on docker host to container, you can reach them
+from actual VM host by editiling [Vagrant](https://github.com/toshke/vagrant-ubuntu-docker/blob/main/Vagrantfile#L14) file ports array. 
+
+Use `vagrant reload` to apply new configuration - beware this will
+reboot your VM with all the containers running on it
+
 ### Run
 
 - Clone the repo 
@@ -50,19 +69,3 @@ this works just fine for myself, and in competition of
 
 VBox may complain if `192.168.56.2` ip is already reserved
 by another network iface on your computer. Just edit [Vagrantfile#4](https://github.com/toshke/vagrant-ubuntu-docker/blob/main/Vagrantfile#L4) to apply available IP
-
-## Folder share
-
-By default, docker mounts will work within `$HOME/workspace` folder,
-but feel free to adjust this to your needs. 
-
-Use `vagrant reload` to apply new configuration - beware this will
-reboot your VM with all the containers running on it
-
-## Port forwaring
-
-If you mount any ports on docker host to container, you can reach them
-from actual VM host by editiling [Vagrant](https://github.com/toshke/vagrant-ubuntu-docker/blob/main/Vagrantfile#L14) file ports array. 
-
-Use `vagrant reload` to apply new configuration - beware this will
-reboot your VM with all the containers running on it
